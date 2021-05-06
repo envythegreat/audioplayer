@@ -2,12 +2,14 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Header from './src/component/Header';
+import TopPlayer from './src/component/TopPlayer';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="light" />
       <Header />
+      <TopPlayer />
     </View>
   );
 }
