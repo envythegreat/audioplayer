@@ -24,7 +24,7 @@ export default function TopPlayer() {
             >
               <View style={styles.row}>
                 <Text style={styles.iconText}>Shuffle</Text>
-                <FeatherIcon name="shuffle" style={[styles.icon, {fontSize: 30}]}></FeatherIcon>
+                <FeatherIcon name="shuffle" style={[styles.icon, {fontSize: 30,}]}></FeatherIcon>
               </View>
             </TouchableOpacity>
           </View>
@@ -52,25 +52,26 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flex: 1,
     display: 'flex',
-    justifyContent:'flex-end',
+    justifyContent: 'space-between'
   },
   btn: {
-    width: '50%',
     height: 44,
+    borderColor: 'snow',
+    marginHorizontal: 10,
   },
   row: {
     height: 44,
     flexDirection: "row",
-    flex: 1
+    flex: 1,
+    alignItems: 'center',
   },
   icon: {
     color: "rgba(255,255,255,1)",
-    fontSize: 40
+    fontSize: 40,
+    // backgroundColor: 'red'
   },
   iconText: {
     color: "rgba(255,255,255,1)",
     fontSize: 18,
-    marginLeft: 5,
-    marginTop: 12
   },
 });
