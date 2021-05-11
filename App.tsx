@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Header from './src/component/Header';
 import TopPlayer from './src/component/TopPlayer';
+import MusicRow from './src/component/MusicRow'
 
 export default function App() {
   return (
@@ -10,6 +11,7 @@ export default function App() {
       <StatusBar style="light" />
       <Header />
       <TopPlayer />
+      <MusicRow />
     </View>
   );
 }

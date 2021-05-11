@@ -40,7 +40,8 @@ const styles = StyleSheet.create({
     height: 51,
     backgroundColor: 'transparent',
     display: 'flex',
-    alignItems:'center'
+    alignItems:'center',
+    marginBottom: 5
   },
   playerContainer: {
     height: 44,
