@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native'
+import { LinearGradient } from 'expo-linear-gradient';
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import FeatherIcon from "react-native-vector-icons/Feather";
 
@@ -7,6 +8,10 @@ export default function TopPlayer() {
   return(
     <>
       <View style={styles.container}>
+      <LinearGradient start={[0, 0.5]}
+                  end={[1, 0.5]}
+                  colors={['rgba(255,252,252,1)', '#4AAE9B']}
+                  style={{width: '90%'}}>
         <View style={styles.playerContainer}>
           <View style={styles.playbuttonRow}>
             <TouchableOpacity
@@ -29,6 +34,7 @@ export default function TopPlayer() {
             </TouchableOpacity>
           </View>
         </View>
+        </LinearGradient>
       </View>
     </>
   );
@@ -41,13 +47,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     display: 'flex',
     alignItems:'center',
-    marginBottom: 5
+    marginBottom: 5,
   },
   playerContainer: {
     height: 44,
-    borderWidth: 1,
-    borderColor: "rgba(255,252,252,1)",
-    width: '90%',
+    backgroundColor:'#000',
+    margin: 1,
   },
   playbuttonRow: {
     flexDirection: "row",

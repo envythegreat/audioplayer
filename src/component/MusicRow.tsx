@@ -1,38 +1,27 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
+interface MusicProps{
+  number: number;
+  name: string
+}
 
-export default function MusicRow () {
+const MusicRow:FC<MusicProps>  = ({number,name}: MusicProps) => {
   return(
     <>
-      <View style={styles.listContainer}>
         <TouchableOpacity>
           <View style={styles.container}>
-            <Text style={styles.musicNumber}>1</Text>
+            <Text style={styles.musicNumber}>{number}</Text>
             <View style={styles.musicText}>
-              <Text style={styles.musicName}>Music Name unknown</Text>
+              <Text style={styles.musicName}>{name}</Text>
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <View style={styles.container}>
-            <Text style={styles.musicNumber}>1</Text>
-            <View style={styles.musicText}>
-              <Text style={styles.musicName}>Music Name unknown</Text>
-            </View>
-          </View>
-        </TouchableOpacity>
-      </View>
     </>
   );
 }
 
 const styles = StyleSheet.create({
-  listContainer: {
-    width: '100%',
-    display: 'flex',
-    alignItems:'center',
-  },
   container: {
     flexDirection: 'row',
     height: 35,
@@ -43,11 +32,11 @@ const styles = StyleSheet.create({
   musicNumber:{
     color: 'rgba(222, 209, 209, 0.60)',
     fontSize: 18,
-    width: '5%',
     padding: 5,
+    textAlign: 'left'
   },
   musicText: {
-    borderBottomColor: '#F0E8E8',
+    borderBottomColor: 'rgba(222, 209, 209, 0.80)',
     height: '100%',
     borderBottomWidth:0.5,
     width: '90%',
@@ -60,3 +49,5 @@ const styles = StyleSheet.create({
     paddingLeft: 0,
   }
 });
+
+export default MusicRow
