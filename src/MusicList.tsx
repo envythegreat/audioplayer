@@ -109,5 +109,6 @@ const styles = StyleSheet.create({
     // alignItems:'center',
     height: 658,
     marginHorizontal: 10,
+    // paddingBottom: 200
   }
 });

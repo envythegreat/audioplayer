@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import Header from './src/component/Header';
 import TopPlayer from './src/component/TopPlayer';
 import MusicList from './src/MusicList';
+import BottomAudio from './src/component/BottomAudio'
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
       <Header />
       <TopPlayer />
       <MusicList />
+      <BottomAudio />
     </View>
   );
 }

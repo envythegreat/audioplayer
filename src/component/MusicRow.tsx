@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   },
   musicNumber:{
     color: 'rgba(222, 209, 209, 0.60)',
-    fontSize: 18,
+    fontSize: 16,
     padding: 5,
     textAlign: 'left'
   },
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   },
   musicName: {
     color: 'rgba(255, 252, 252, 0.80)',
-    fontSize: 18,
+    fontSize: 16,
     padding: 5,
     paddingLeft: 0,
   }
