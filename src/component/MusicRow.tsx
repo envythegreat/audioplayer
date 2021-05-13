@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     marginLeft:10
   },
   musicName: {
-    color: 'white',
+    color: 'rgba(255, 252, 252, 0.80)',
     fontSize: 18,
     padding: 5,
     paddingLeft: 0,

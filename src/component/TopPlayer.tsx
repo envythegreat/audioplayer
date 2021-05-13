@@ -8,9 +8,9 @@ export default function TopPlayer() {
   return(
     <>
       <View style={styles.container}>
-      <LinearGradient start={[0, 0.5]}
-                  end={[1, 0.5]}
-                  colors={['rgba(255,252,252,1)', '#4AAE9B']}
+      <LinearGradient start={[1,0.5]}
+                  end={[0, 0]}
+                  colors={['rgba(0, 0, 0, 0.54)', 'rgba(255, 252, 252, 0.25)']}
                   style={{width: '90%'}}>
         <View style={styles.playerContainer}>
           <View style={styles.playbuttonRow}>
