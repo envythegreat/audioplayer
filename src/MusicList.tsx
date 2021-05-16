@@ -5,7 +5,7 @@ const {height} =  Dimensions.get('window');
 
 const music = [
   {
-    name: 'Black Magic (feat. Skylar Grey)',
+    name: 'Black Magic (feat. Skylar Greyd)',
   },
   {
     name: 'Alfred\'s Theme [Official Audio]',
@@ -95,7 +95,8 @@ export default function MusicList() {
             music.map(({name}, index) => (
               <MusicRow name={name} number={index} key={index} />
             ))
-          } 
+          }
+          <View style={{width: '100%', height:100}}></View>
         </ScrollView>
       </SafeAreaView>
     </>
@@ -109,6 +110,5 @@ const styles = StyleSheet.create({
     // alignItems:'center',
     height: 658,
     marginHorizontal: 10,
-    // paddingBottom: 200
   }
 });
