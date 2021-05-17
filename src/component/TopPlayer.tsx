@@ -8,32 +8,34 @@ export default function TopPlayer() {
   return(
     <>
       <View style={styles.container}>
-      <LinearGradient start={[1,0.5]}
-                  end={[0, 0]}
-                  colors={['rgba(0, 0, 0, 0.54)', 'rgba(255, 252, 252, 0.25)']}
-                  style={{width: '90%'}}>
-        <View style={styles.playerContainer}>
-          <View style={styles.playbuttonRow}>
-            <TouchableOpacity
-              onPress={() => console.log("Navigate to Untitled")}
-              style={styles.btn}
-            >
-              <View style={styles.row}>
-                <EntypoIcon name="controller-play" style={styles.icon}></EntypoIcon>
-                <Text style={styles.iconText}>Play All</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => console.log("Navigate to Untitled")}
-              style={styles.btn}
-            >
-              <View style={styles.row}>
-                <Text style={styles.iconText}>Shuffle</Text>
-                <FeatherIcon name="shuffle" style={[styles.icon, {fontSize: 30,}]}></FeatherIcon>
-              </View>
-            </TouchableOpacity>
+        <LinearGradient
+          start={[1,0.5]}
+          end={[0, 0]}
+          colors={['rgba(0, 0, 0, 0.54)', 'rgba(255, 252, 252, 0.25)']}
+          style={{width: '90%'}}
+        >
+          <View style={styles.playerContainer}>
+            <View style={styles.playbuttonRow}>
+              <TouchableOpacity
+                onPress={() => console.log("Navigate to Untitled")}
+                style={styles.btn}
+              >
+                <View style={styles.row}>
+                  <EntypoIcon name="controller-play" style={styles.icon}></EntypoIcon>
+                  <Text style={styles.iconText}>Play All</Text>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => console.log("Navigate to Untitled")}
+                style={styles.btn}
+              >
+                <View style={styles.row}>
+                  <Text style={styles.iconText}>Shuffle</Text>
+                  <FeatherIcon name="shuffle" style={[styles.icon, {fontSize: 30,}]}></FeatherIcon>
+                </View>
+              </TouchableOpacity>
+            </View>
           </View>
-        </View>
         </LinearGradient>
       </View>
     </>

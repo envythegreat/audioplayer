@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Header from './src/component/Header';
 import TopPlayer from './src/component/TopPlayer';
@@ -8,14 +8,20 @@ import BottomAudio from './src/component/BottomAudio'
 import NewAudio from './src/component/NewAudio';
 
 export default function App() {
+
+  // all for test purpose we change them later to redux
+  const [click, setClick] = useState(false);
+  const setClicked = () => setClick(!click)
+
+
   return (
     <View style={styles.container}>
       <StatusBar style="light" />
-      <Header />
+      <Header cnClicks={setClicked} />
       <TopPlayer />
       <MusicList />
       <BottomAudio />
-      <NewAudio />
+      <NewAudio isClicked={click} />
     </View>
   );
 }

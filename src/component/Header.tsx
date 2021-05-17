@@ -1,7 +1,12 @@
-import React from 'react';
+import React, {FC} from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/Entypo";
-export default function Header() {
+
+interface HProps{
+  cnClicks: () => void
+}
+
+const Header:FC<HProps> = ({cnClicks} : HProps) => {
   return(
     <>
       <View style={styles.container}>
@@ -9,7 +14,7 @@ export default function Header() {
           <View style={styles.mp3AudioRow}>
             <Text style={styles.mp3Audio}>Mp3 Audio</Text>
             <TouchableOpacity
-              onPress={() => console.log("Navigate to Untitled")}
+              onPress={() => cnClicks()}
               style={styles.button}
             >
               <Icon name="circle-with-plus" style={styles.icon} />
@@ -54,3 +59,5 @@ const styles = StyleSheet.create({
     fontSize: 40
   },
 });
+
+export default Header
