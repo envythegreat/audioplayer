@@ -5,6 +5,7 @@ import Header from './src/component/Header';
 import TopPlayer from './src/component/TopPlayer';
 import MusicList from './src/MusicList';
 import BottomAudio from './src/component/BottomAudio'
+import NewAudio from './src/component/NewAudio';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
       <TopPlayer />
       <MusicList />
       <BottomAudio />
+      <NewAudio />
     </View>
   );
 }
