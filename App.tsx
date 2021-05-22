@@ -1,37 +1,56 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Header from './src/component/Header';
-import TopPlayer from './src/component/TopPlayer';
+import React, { useState, useCallback, useMemo, useRef } from 'react';
+import { StyleSheet, View, Button,Text } from 'react-native';
+import { BottomAudio, Header, NewAudio, TopPlayer } from './src/component';
 import MusicList from './src/MusicList';
-import BottomAudio from './src/component/BottomAudio'
-import NewAudio from './src/component/NewAudio';
+
+import {
+  BottomSheetModal,
+  BottomSheetModalProvider,
+} from '@gorhom/bottom-sheet';
+
+
 
 export default function App() {
 
-  // all for test purpose we change them later to redux
-  const [click, setClick] = useState(false);
-  const setClicked = () => setClick(!click)
+  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
+
+  // variables
+  const snapPoints = useMemo(() => ['10%', '40%'], []);
+  // callbacks
+  const handlePresentModalPress = useCallback(() => {
+    bottomSheetModalRef.current?.present();
+  }, []);
+  const handleSheetChanges = useCallback((index: number) => {
+    console.log('handleSheetChanges', index);
+  }, []);
 
 
   return (
-    <View style={styles.container}>
-      <StatusBar style="light" />
-      <Header cnClicks={setClicked} />
-      <TopPlayer />
-      <MusicList />
-      <BottomAudio />
-      <NewAudio isClicked={click} />
-    </View>
+    <BottomSheetModalProvider>
+      <View style={styles.container}>
+        <StatusBar style="light" />
+        <Header cnClicks={handlePresentModalPress} />
+        <TopPlayer />
+        <MusicList />
+        <BottomAudio />
+        
+        <BottomSheetModal
+          ref={bottomSheetModalRef}
+          index={1}
+          snapPoints={snapPoints}
+          onChange={handleSheetChanges}
+        >
+          <NewAudio />
+        </BottomSheetModal>
+      </View>
+    </BottomSheetModalProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
     backgroundColor: '#000',
     paddingTop: 20
-    // alignItems: 'center',
-    // justifyContent: 'center',
   },
 });

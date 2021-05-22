@@ -14,7 +14,7 @@ const Header:FC<HProps> = ({cnClicks} : HProps) => {
           <View style={styles.mp3AudioRow}>
             <Text style={styles.mp3Audio}>Mp3 Audio</Text>
             <TouchableOpacity
-              onPress={() => cnClicks()}
+              onPress={cnClicks}
               style={styles.button}
             >
               <Icon name="circle-with-plus" style={styles.icon} />

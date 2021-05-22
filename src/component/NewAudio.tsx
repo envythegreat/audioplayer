@@ -5,19 +5,16 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import TextInput from './TextInput';
 const {width} = Dimensions.get('window');
 
-interface NAProps{
-  isClicked: boolean;
-}
 
-const NewAudio:FC<NAProps> = ({isClicked}: NAProps) => {
+const NewAudio:FC = () => {
   return(
     <>
-      <View style={[styles.container, {bottom: isClicked ? 0 : -400,}]}>
+      <View style={[styles.container, {bottom: 0,}]}>
         <View style={styles.header} >
           <Text style={styles.textHeader} >New Audio</Text>
-          <TouchableOpacity>
+          {/* <TouchableOpacity>
             <MaterialIcons name="cancel" style={styles.closeIcon} ></MaterialIcons>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
         <TextInput  icon="link" placeholder="Youtube Url" />
         <TextInput  icon="headphones" placeholder="Audio Name" />
@@ -45,12 +42,10 @@ const NewAudio:FC<NAProps> = ({isClicked}: NAProps) => {
 //link
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'snow',
+    backgroundColor: '#fff',
     width: '100%',
     height: 380,
-    position:'absolute',
-    left: 0,
-    zIndex: 99999,
+    zIndex: 999999,
     borderRadius: 20,
     alignItems: 'center'
   },
@@ -80,6 +75,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: 0
   },
   downloadText: {
     color: '#FFFFFF',
