@@ -1,30 +1,30 @@
 import React,{FC} from 'react';
 import { BlurView } from 'expo-blur';
 import EntypoIcon from "react-native-vector-icons/Entypo";
-import {View, StyleSheet, Text, Image, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, Text, Image, TouchableOpacity,} from 'react-native';
 
 const BottomAudio:FC = () => {
   return(
-    <View style={styles.container}>
-      <BlurView 
-        intensity={80}
-        style={{width: '100%', height: '100%',}}
-        tint="dark"
-      >
-        <View style={styles.myPlayer}>
-            <Image source={require('../../assets/emn.png')}  style={styles.musicImg} />
-          <View style={{width: '60%'}}>
-            <Text style={styles.musicTitle} >Black Magic (feat...</Text>
-            <Text style={styles.musicTimer}>1:55</Text>
-            <View style={styles.progressContainer}><View style={styles.progress}></View></View>
-            
+    <TouchableOpacity  onPress={() => alert('ME')} style={styles.container} activeOpacity={1.5}>
+        <BlurView 
+          intensity={80}
+          style={{width: '100%', height: '100%',}}
+          tint="dark"
+        >
+          <View style={styles.myPlayer}>
+              <Image source={require('../../assets/emn.png')}  style={styles.musicImg} />
+            <View style={{width: '60%'}}>
+              <Text style={styles.musicTitle} >Black Magic (feat...</Text>
+              <Text style={styles.musicTimer}>1:55</Text>
+              <View style={styles.progressContainer}><View style={styles.progress}></View></View>
+              
+            </View>
+            <TouchableOpacity>
+              <EntypoIcon name="controller-play" style={styles.icon}></EntypoIcon>
+            </TouchableOpacity>
           </View>
-          <TouchableOpacity>
-            <EntypoIcon name="controller-play" style={styles.icon}></EntypoIcon>
-          </TouchableOpacity>
-        </View>
-      </BlurView>
-    </View>
+        </BlurView>
+    </TouchableOpacity>
   );
 }
 

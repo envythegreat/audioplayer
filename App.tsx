@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState, useCallback, useMemo, useRef } from 'react';
-import { StyleSheet, View, Button,Text } from 'react-native';
-import { BottomAudio, Header, NewAudio, TopPlayer } from './src/component';
+import React, {useCallback, useMemo, useRef } from 'react';
+import { StyleSheet, View} from 'react-native';
+import { BottomAudio, Header, MusicCard, NewAudio, TopPlayer } from './src/component';
 import MusicList from './src/MusicList';
 
 import {
@@ -34,7 +34,7 @@ export default function App() {
         <TopPlayer />
         <MusicList />
         <BottomAudio />
-        
+        {/* <MusicCard /> */}
         <BottomSheetModal
           ref={bottomSheetModalRef}
           index={1}
