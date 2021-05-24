@@ -5,7 +5,7 @@ import {View, Text, StyleSheet, Dimensions, Image} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 
-const {height} = Dimensions.get('window')
+const {height} = Dimensions.get('screen')
 
 const MusicCard:FC = () => {
   return (
@@ -26,7 +26,7 @@ const MusicCard:FC = () => {
           </View>
           <Text style={styles.myText}>Black Magic (feat. Skylar Grey)</Text>
           <View style={styles.progressContainer}><View style={styles.progress}></View></View>
-          <Text style={[styles.myText, {textAlign: 'right', fontWeight: 'bold', marginRight: 38}]}>1:56</Text>
+          <Text style={[styles.myText, {textAlign: 'right', fontWeight: 'bold', marginRight: 38, fontSize: 16}]}>1:56</Text>
           <View style={styles.musicController}>
             <TouchableOpacity>
               <FeatherIcon name="skip-back" style={{fontSize: 50,}}  color="#fff" />
@@ -40,10 +40,10 @@ const MusicCard:FC = () => {
           </View>
           <View style={styles.otherControllers}>
             <TouchableOpacity>
-              <FeatherIcon name="repeat" style={{fontSize: 30,}}  color="#fff"/>
+              <FeatherIcon name="repeat" style={{fontSize: 20,}}  color="#fff"/>
             </TouchableOpacity>
             <TouchableOpacity>
-              <FeatherIcon name="trash-2" style={{fontSize: 30,}}  color="#fff"/>
+              <FeatherIcon name="trash-2" style={{fontSize: 20,}}  color="#fff"/>
             </TouchableOpacity>
           </View>
         </BlurView>
@@ -55,11 +55,11 @@ const MusicCard:FC = () => {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: height * 0.82,
+    height: '100%',
     backgroundColor: 'rgba(79, 79, 79, 0.2)',
-    zIndex: 9999,
-    borderRadius: 20 ,
+    zIndex: 9999999,
     overflow: 'hidden',
+    flex: 1,
   },
   imgBg:{
     width: 250,

@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useCallback, useMemo, useRef } from 'react';
 import { StyleSheet, View} from 'react-native';
-import { BottomAudio, Header, MusicCard, NewAudio, TopPlayer } from './src/component';
+import { BottomAudio, CustomBackground, Header, MusicCard, NewAudio, TopPlayer } from './src/component';
 import MusicList from './src/MusicList';
 
 import {
@@ -13,17 +13,36 @@ import {
 
 export default function App() {
 
+  // NewAudio Modal
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
-  // variables
   const snapPoints = useMemo(() => ['10%', '40%'], []);
-  // callbacks
+
   const handlePresentModalPress = useCallback(() => {
-    bottomSheetModalRef.current?.present();
+    if (bottomSheetModalRef.current) {
+      bottomSheetModalRef.current.present();
+    }
   }, []);
+
+
+
+  //Card Music Modal
+  const bottomSheetMusicCard = useRef<BottomSheetModal>(null);
+  const CardsnapPoints = useMemo(() => ['40%', '78%'], []);
+
+  const handlePresentCardPress = useCallback(() => {
+    if (bottomSheetMusicCard.current) {
+      bottomSheetMusicCard.current.present();
+    }
+  }, []);
+
+
+
   const handleSheetChanges = useCallback((index: number) => {
     console.log('handleSheetChanges', index);
   }, []);
+
+
 
 
   return (
@@ -33,7 +52,8 @@ export default function App() {
         <Header cnClicks={handlePresentModalPress} />
         <TopPlayer />
         <MusicList />
-        <BottomAudio />
+        <BottomAudio  onClicks={handlePresentCardPress} />
+        
         {/* <MusicCard /> */}
         <BottomSheetModal
           ref={bottomSheetModalRef}
@@ -42,6 +62,16 @@ export default function App() {
           onChange={handleSheetChanges}
         >
           <NewAudio />
+        </BottomSheetModal>
+        <BottomSheetModal
+          ref={bottomSheetMusicCard}
+          name="Music Card"
+          index={1}
+          snapPoints={CardsnapPoints}
+          onChange={handleSheetChanges}
+          backgroundComponent={CustomBackground}
+        >
+          <MusicCard />
         </BottomSheetModal>
       </View>
     </BottomSheetModalProvider>

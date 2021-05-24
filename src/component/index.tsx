@@ -4,6 +4,6 @@ import MusicCard from "./MusicCard"
 import MusicRow from "./MusicRow"
 import NewAudio from "./NewAudio"
 import TopPlayer from "./TopPlayer"
-import BorromSheetModal from './BorromSheetModal'
+import CustomBackground from './CustomBackground'
 
-export {BottomAudio, Header, MusicCard, MusicRow, NewAudio, TopPlayer, BorromSheetModal} 
+export {BottomAudio, Header, MusicCard, MusicRow, NewAudio, TopPlayer, CustomBackground} 

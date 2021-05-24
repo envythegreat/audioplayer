@@ -3,9 +3,13 @@ import { BlurView } from 'expo-blur';
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import {View, StyleSheet, Text, Image, TouchableOpacity,} from 'react-native';
 
-const BottomAudio:FC = () => {
+interface BAProps{
+  onClicks: () => void;
+}
+
+const BottomAudio:FC<BAProps> = ({onClicks} : BAProps) => {
   return(
-    <TouchableOpacity  onPress={() => alert('ME')} style={styles.container} activeOpacity={1.5}>
+    <TouchableOpacity  onPress={onClicks} style={styles.container} activeOpacity={1.5}>
         <BlurView 
           intensity={80}
           style={{width: '100%', height: '100%',}}
