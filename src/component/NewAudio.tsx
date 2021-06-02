@@ -1,8 +1,8 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import React,{FC} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, Dimensions,} from 'react-native';
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import TextInput from './TextInput';
+import {makeDr} from '../../t'
 const {width} = Dimensions.get('window');
 
 
@@ -24,7 +24,8 @@ const NewAudio:FC = () => {
           shadowOpacity: 0.8,
           shadowRadius: 11,  
           elevation: 5
-        }}>
+          // https://www.youtube.com/watch?v=LsfnODTWgss
+        }} onPress={() => makeDr('https://www.youtube.com/watch?v=LsfnODTWgss')}>
           <LinearGradient
             start={[1,0.5]}
             end={[0, 0]}

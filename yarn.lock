@@ -1264,15 +1264,16 @@
     lodash.pick "^4.4.0"
     lodash.template "^4.5.0"
 
-"@gorhom/bottom-sheet@3":
-  version "3.6.4"
-  resolved "https://registry.yarnpkg.com/@gorhom/bottom-sheet/-/bottom-sheet-3.6.4.tgz#9f8c590493e1067dd638b69d7d7f1e86089844fc"
-  integrity sha512-jWZH64tur/PdwCdv6Ojt3Q85f/Q2LuyHV7gYjrN/30INnQw8ArRTOLUmLoLnwWFxeh561JdQ+XTvE53Hjo9wOw==
+"@gorhom/bottom-sheet@2":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@gorhom/bottom-sheet/-/bottom-sheet-2.3.0.tgz#1b9e32601819731cd7bfd4ed4e4ca5e26828b146"
+  integrity sha512-INEEvTFQ1TgGgbJyjjpO/dzrEV5J+Nhdl31tQotbLekL1Ut5v1uojPid06y7T86y23VWDRuIwsYW/5p70FLB1A==
   dependencies:
     "@gorhom/portal" "^1.0.4"
     invariant "^2.2.4"
+    lodash.isequal "^4.5.0"
     nanoid "^3.1.20"
-    react-native-redash "^16.0.10"
+    react-native-redash "^14.2.4"
 
 "@gorhom/portal@^1.0.4":
   version "1.0.4"
@@ -1790,6 +1791,13 @@
     sudo-prompt "^9.0.0"
     wcwidth "^1.0.1"
 
+"@types/fluent-ffmpeg@^2.1.17":
+  version "2.1.17"
+  resolved "https://registry.yarnpkg.com/@types/fluent-ffmpeg/-/fluent-ffmpeg-2.1.17.tgz#6958dda400fe1b33c21f3683db76905cb210d053"
+  integrity sha512-/bdvjKw/mtBHlJ2370d04nt4CsWqU5MrwS/NtO96V01jxitJ4+iq8OFNcqc5CegeV3TQOK3uueK02kvRK+zjUg==
+  dependencies:
+    "@types/node" "*"
+
 "@types/hammerjs@^2.0.36":
   version "2.0.39"
   resolved "https://registry.yarnpkg.com/@types/hammerjs/-/hammerjs-2.0.39.tgz#4be64bbacf3813c79c0dab895c6b0fdc7d5e513f"
@@ -1826,6 +1834,11 @@
   version "15.0.1"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-15.0.1.tgz#ef34dea0881028d11398be5bf4e856743e3dc35a"
   integrity sha512-TMkXt0Ck1y0KKsGr9gJtWGjttxlZnnvDtphxUOSd0bfaR6Q1jle+sPvrzNR1urqYTWMinoKvjKfXUGsumaO1PA==
+
+"@types/node@^15.6.1":
+  version "15.6.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-15.6.1.tgz#32d43390d5c62c5b6ec486a9bc9c59544de39a08"
+  integrity sha512-7EIraBEyRHEe7CH+Fm1XvgqU6uwZN8Q7jppJGcqjROMT29qhAuuOxYB1uEY5UMYQKEmA5D+5tBnhdaPXSsLONA==
 
 "@types/prop-types@*":
   version "15.7.3"
@@ -2117,6 +2130,11 @@ astral-regex@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/astral-regex/-/astral-regex-1.0.0.tgz#6c8c3fb827dd43ee3918f27b82782ab7658a6fd9"
   integrity sha512-+Ryf6g3BKoRc7jfp7ad8tM4TtMiaWvbF/1/sQcZPkkS7ag3D5nMBCe2UfOTONtAkaG0tO0ij3C5Lwmf1EiyjHg==
+
+async@>=0.2.9:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/async/-/async-3.2.0.tgz#b3a2685c5ebb641d3de02d161002c60fc9f85720"
+  integrity sha512-TR2mEZFVOj2pLStYxLht7TyfuRzaydfpxr3k9RpHIzMgw7A64dzsdqCxH1WJyQdoe8T10nDXd9wnEigmiuHIZw==
 
 async@^2.4.0:
   version "2.6.3"
@@ -3403,6 +3421,14 @@ find-up@~5.0.0:
     locate-path "^6.0.0"
     path-exists "^4.0.0"
 
+fluent-ffmpeg@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/fluent-ffmpeg/-/fluent-ffmpeg-2.1.2.tgz#c952de2240f812ebda0aa8006d7776ee2acf7d74"
+  integrity sha1-yVLeIkD4EuvaCqgAbXd27irPfXQ=
+  dependencies:
+    async ">=0.2.9"
+    which "^1.1.1"
+
 fontfaceobserver@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/fontfaceobserver/-/fontfaceobserver-2.1.0.tgz#e2705d293e2c585a6531c2a722905657317a2991"
@@ -4377,6 +4403,14 @@ lru-cache@^4.0.1:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
 
+m3u8stream@^0.8.3:
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/m3u8stream/-/m3u8stream-0.8.4.tgz#15b49d0c2b510755ea43c1e53f85d7aaa4dc65c2"
+  integrity sha512-sco80Db+30RvcaIOndenX6E6oQNgTiBKeJbFPc+yDXwPQIkryfboEbCvXPlBRq3mQTCVPQO93TDVlfRwqpD35w==
+  dependencies:
+    miniget "^4.0.0"
+    sax "^1.2.4"
+
 make-dir@^2.0.0, make-dir@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/make-dir/-/make-dir-2.1.0.tgz#5f0310e18b8be898cc07009295a30ae41e91e6f5"
@@ -4705,6 +4739,11 @@ min-document@^2.19.0:
   integrity sha1-e9KC4/WELtKVu3SM3Z8f+iyCRoU=
   dependencies:
     dom-walk "^0.1.0"
+
+miniget@^4.0.0:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/miniget/-/miniget-4.2.1.tgz#11a1c24817a059e292378eb9cff4328d9240c665"
+  integrity sha512-O/DduzDR6f+oDtVype9S/Qu5hhnx73EDYGyZKwU/qN82lehFZdfhoa4DT51SpsO+8epYrB3gcRmws56ROfTIoQ==
 
 minimatch@^3.0.4:
   version "3.0.4"
@@ -5350,10 +5389,10 @@ react-native-reanimated@~2.1.0:
     mockdate "^3.0.2"
     string-hash-64 "^1.0.3"
 
-react-native-redash@^16.0.10:
-  version "16.0.11"
-  resolved "https://registry.yarnpkg.com/react-native-redash/-/react-native-redash-16.0.11.tgz#973c3050a0645e3b9873790a8e68694770a32f27"
-  integrity sha512-9yTpeabkAoWASzmhEkynNh1wDTrLVtbE+x9dOV1DI23vRa7k1HI+Y1jOUNOPyRG2ddgHampNq9iHtsLnkK4mtw==
+react-native-redash@^14.2.4:
+  version "14.2.4"
+  resolved "https://registry.yarnpkg.com/react-native-redash/-/react-native-redash-14.2.4.tgz#5dbb4b2f1a7441bb304fe3494b89e0dc9010c8ef"
+  integrity sha512-/1R9UxXv3ffKcrbxolqa2B247Cgd3ikyEm2q1VlBng77Es6PAD4LAOXQ83pBavvwNfOsbhF3ebkbMpJcLaVt3Q==
   dependencies:
     abs-svg-path "^0.1.1"
     normalize-svg-path "^1.0.1"
@@ -5663,7 +5702,7 @@ sane@^4.0.3:
     minimist "^1.1.1"
     walker "~1.0.5"
 
-sax@>=0.6.0, sax@^1.2.1, sax@^1.2.4:
+sax@>=0.6.0, sax@^1.1.3, sax@^1.2.1, sax@^1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
   integrity sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
@@ -6410,7 +6449,7 @@ which-typed-array@^1.1.2:
     has-symbols "^1.0.1"
     is-typed-array "^1.1.3"
 
-which@^1.2.9:
+which@^1.1.1, which@^1.2.9:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/which/-/which-1.3.1.tgz#a45043d54f5805316da8d62f9f50918d3da70b0a"
   integrity sha512-HxJdYWq1MTIQbJ3nw0cqssHoTNU267KlrDuGZ1WYlxDStUtKUhOaJmh112/TZmHxxUfuJqPXSOm7tDyas0OSIQ==
@@ -6646,3 +6685,12 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
+
+ytdl-core@^4.8.2:
+  version "4.8.2"
+  resolved "https://registry.yarnpkg.com/ytdl-core/-/ytdl-core-4.8.2.tgz#f034ad942c5d958f5987fc8ff0b0639664ae2fb7"
+  integrity sha512-O3n++YcgZawaXJwbPmnRDgfN6b4kU0DpNdkI9Na5yM3JAdfJmoq5UHc8v9Xjgjr1RilQUUh7mhDnRRPDtKr0Kg==
+  dependencies:
+    m3u8stream "^0.8.3"
+    miniget "^4.0.0"
+    sax "^1.1.3"
