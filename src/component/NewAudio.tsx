@@ -2,49 +2,11 @@ import { LinearGradient } from 'expo-linear-gradient';
 import React,{FC,useState, useEffect} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, Dimensions, Button} from 'react-native';
 import TextInput from './TextInput';
-import {makeDr} from '../../t'
+import {downLoadAudio} from '../../t'
 const {width} = Dimensions.get('window');
-import { Audio } from 'expo-av';
-import * as FileSystem from 'expo-file-system'
-import ytdl from "react-native-ytdl"
+
 
 const NewAudio:FC = () => {
-
-  const [sound, setSound] = useState<any>();
-  async function playSound () {
-    console.log('Loading Sound');
-    const { sound } = await Audio.Sound.createAsync(
-      {
-        uri: FileSystem.documentDirectory + 'MyAudioPlayer/myaudio.mp3', 
-      },
-      
-      
-    );
-    setSound(sound);
-
-    console.log('Playing Sound');
-    await sound.playAsync(); 
-  }
-
-  useEffect(() => {
-    Audio.setAudioModeAsync({
-      allowsRecordingIOS: false,
-      staysActiveInBackground: true,
-      interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
-      playsInSilentModeIOS: true,
-      shouldDuckAndroid: true,
-      interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
-      playThroughEarpieceAndroid: false,
-    })
-    return sound
-      ? () => {
-          console.log('Unloading Sound');
-          sound.unloadAsync(); }
-      : undefined;
-  }, [sound]);
-
-
-
   return(
     <>
       <View style={[styles.container, {bottom: 0,}]}>
@@ -56,7 +18,7 @@ const NewAudio:FC = () => {
         </View>
         <TextInput  icon="link" placeholder="Youtube Url" />
         <TextInput  icon="headphones" placeholder="Audio Name" />
-        <Button title="Play Sound" onPress={playSound} />
+        <Button title="Play Sound" onPress={() => null} />
         <TouchableOpacity style={{
           shadowColor: 'rgba(255, 110, 170, 1)',
           shadowOffset: { width: 0, height: 5 },
@@ -64,7 +26,7 @@ const NewAudio:FC = () => {
           shadowRadius: 11,  
           elevation: 5
           // https://www.youtube.com/watch?v=LsfnODTWgss
-        }} onPress={() => makeDr('https://www.youtube.com/watch?v=LsfnODTWgss')}>
+        }} onPress={() => downLoadAudio()}>
           <LinearGradient
             start={[1,0.5]}
             end={[0, 0]}

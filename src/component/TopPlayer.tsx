@@ -1,10 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient';
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import FeatherIcon from "react-native-vector-icons/Feather";
+import { Audio } from 'expo-av';
+import * as FileSystem from 'expo-file-system'
+
 
 export default function TopPlayer() {
+
+
+  const [sound, setSound] = useState<Audio.Sound>();
+  async function playSound () {
+    Audio.setAudioModeAsync({
+      allowsRecordingIOS: false,
+      staysActiveInBackground: true,
+      playsInSilentModeIOS: true,
+      shouldDuckAndroid: true,
+      playThroughEarpieceAndroid: false,
+    })
+    // const myd = await FileSystem.getInfoAsync(FileSystem.documentDirectory + 'Helvegen.mp3', {size: true})
+    console.log('Loading Sound');
+    const { sound: _sound } = await Audio.Sound.createAsync(
+      {
+        uri: 'http://45.77.225.52/death%20bed.mp3'
+      },
+      {shouldPlay: true}
+    );
+    setSound(_sound);
+  }
+
+  useEffect(() => {
+    
+    return sound
+      ? () => {
+          console.log('Unloading Sound');
+          sound.unloadAsync(); }
+      : undefined;
+  }, [sound]);
+
+  
   return(
     <>
       <View style={styles.container}>
@@ -17,7 +52,7 @@ export default function TopPlayer() {
           <View style={styles.playerContainer}>
             <View style={styles.playbuttonRow}>
               <TouchableOpacity
-                onPress={() => console.log("Navigate to Untitled")}
+                onPress={playSound}
                 style={styles.btn}
               >
                 <View style={styles.row}>
