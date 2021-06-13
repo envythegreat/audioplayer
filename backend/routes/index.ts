@@ -2,7 +2,7 @@ import {TRoutesInput} from '../types';
 const fs = require('fs');
 const ytdl = require('ytdl-core');
 const path = require('path');
-
+var FfmpegCommand = require('fluent-ffmpeg');
 
 
 export default ({app}: TRoutesInput) => {
@@ -17,9 +17,22 @@ export default ({app}: TRoutesInput) => {
     let info = await ytdl.getInfo(Url);
     let name = info.videoDetails.title
     name = name.replace(/\s/g, '_');
-    ytdl(Url, { quality: 'highestaudio' })
-    .pipe(fs.createWriteStream(`./downloader/${name}.mp3`));
+    const stream = ytdl(Url, { quality: 'highestaudio' })
+    const p = fs.createWriteStream('outputfile.mp3');
+    // .pipe(fs.createWriteStream(`./downloader/${name}.mp4`));
+    var proc = new FfmpegCommand({source: stream});
+    proc.setFfmpegPath('C:\\ffmpeg\\bin\\ffmpeg.exe')
+    proc.withAudioCodec('libmp3lame')
+        .toFormat('mp3')
+        .output(p)
+        .run();
+    proc.on('end', function() {
+        console.log('finished');
+    });
     return res.send({Res: `Audio DownLoaded : ${name}`})
+
+
+
   })
 
 

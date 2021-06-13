@@ -19,11 +19,11 @@ export default function TopPlayer() {
       shouldDuckAndroid: true,
       playThroughEarpieceAndroid: false,
     })
-    // const myd = await FileSystem.getInfoAsync(FileSystem.documentDirectory + 'Helvegen.mp3', {size: true})
+    const myd = await FileSystem.getInfoAsync(FileSystem.documentDirectory + 'amari.mp3', {size: true})
     console.log('Loading Sound');
     const { sound: _sound } = await Audio.Sound.createAsync(
       {
-        uri: 'http://45.77.225.52/death%20bed.mp3'
+        uri: myd.uri
       },
       {shouldPlay: true}
     );

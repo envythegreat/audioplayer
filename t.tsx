@@ -13,8 +13,8 @@ export const downLoadAudio  = async () => {
   //   console.log('not found')
   // }
   const downloadResumable = FileSystem.createDownloadResumable(
-    'http://192.168.1.100:3599/audioUrl/Helvegen.mp3',
-    FileSystem.documentDirectory + 'Helvegen.mp3',
+    'http://45.77.225.52/outputfile.mp3',
+    FileSystem.documentDirectory + 'amari.mp3',
     {},
     DownloadProgress
   );
