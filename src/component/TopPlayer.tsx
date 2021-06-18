@@ -19,7 +19,7 @@ export default function TopPlayer() {
       shouldDuckAndroid: true,
       playThroughEarpieceAndroid: false,
     })
-    const myd = await FileSystem.getInfoAsync(FileSystem.documentDirectory + 'amari.mp3', {size: true})
+    const myd = await FileSystem.getInfoAsync(FileSystem.documentDirectory + 'Amari.mp3', {size: true})
     console.log('Loading Sound');
     const { sound: _sound } = await Audio.Sound.createAsync(
       {

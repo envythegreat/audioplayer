@@ -26,7 +26,7 @@ const NewAudio:FC = () => {
           shadowRadius: 11,  
           elevation: 5
           // https://www.youtube.com/watch?v=LsfnODTWgss
-        }} onPress={() => downLoadAudio()}>
+        }} onPress={() => downLoadAudio('Amari')}>
           <LinearGradient
             start={[1,0.5]}
             end={[0, 0]}
