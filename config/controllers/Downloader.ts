@@ -1,5 +1,5 @@
 import * as FileSystem from 'expo-file-system'
-import { AudioObj, downloadObj } from '../types';
+import { AudioObj, downloadObj } from '../';
 
 class Downloader {
 
@@ -14,7 +14,7 @@ class Downloader {
   }
 
   async ifExist (path: any) {
-    const ifExist = await FileSystem.getInfoAsync(FileSystem.documentDirectory + 'Helvegen.mp3', {size: true})
+    const ifExist = await FileSystem.getInfoAsync(path, {size: true})
     return ifExist.exists
   }
 

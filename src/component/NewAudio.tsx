@@ -1,5 +1,5 @@
 import { LinearGradient } from 'expo-linear-gradient';
-import React,{FC,useState, useEffect} from 'react';
+import React,{FC} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, Dimensions, Button} from 'react-native';
 import TextInput from './TextInput';
 import {downLoadAudio} from '../../t'
@@ -18,7 +18,6 @@ const NewAudio:FC = () => {
         </View>
         <TextInput  icon="link" placeholder="Youtube Url" />
         <TextInput  icon="headphones" placeholder="Audio Name" />
-        <Button title="Play Sound" onPress={() => null} />
         <TouchableOpacity style={{
           shadowColor: 'rgba(255, 110, 170, 1)',
           shadowOffset: { width: 0, height: 5 },
