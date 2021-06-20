@@ -1,12 +1,16 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import React,{FC} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, Dimensions, Button} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, Dimensions} from 'react-native';
 import TextInput from './TextInput';
-import {downLoadAudio} from '../../t'
 const {width} = Dimensions.get('window');
+import {Downloader} from '../../config/';
 
 
+const downloader = new Downloader();
 const NewAudio:FC = () => {
+  const downloadAudio = (name: string, url: string) => {
+    downloader.audioDownloader({name, url})
+  }
   return(
     <>
       <View style={[styles.container, {bottom: 0,}]}>
@@ -24,8 +28,7 @@ const NewAudio:FC = () => {
           shadowOpacity: 0.8,
           shadowRadius: 11,  
           elevation: 5
-          // https://www.youtube.com/watch?v=LsfnODTWgss
-        }} onPress={() => downLoadAudio('Amari')}>
+        }} onPress={() => downloadAudio('Amari', 'http://45.77.225.52/outputfile.mp3')}>
           <LinearGradient
             start={[1,0.5]}
             end={[0, 0]}

@@ -1,7 +1,8 @@
 import * as FileSystem from 'expo-file-system'
 import { AudioObj, downloadObj } from '../';
+import Storage from './Storage'
 
-class Downloader {
+class Downloader extends Storage {
 
 
   DownloadProgress = (downloadProgress: any) => {
@@ -34,11 +35,14 @@ class Downloader {
     try {
       //@ts-ignore
       const { uri } = await downloadResumable.downloadAsync();
+      this.addNewData(dataStorage, '@Audio')
       console.log('Finished downloading to ', uri);
     } catch (e) {
       console.error(e);
     }
   }
+
+  
 }
 
 export default Downloader
