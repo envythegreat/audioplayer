@@ -10,7 +10,7 @@ import * as FileSystem from 'expo-file-system';
 const downloader = new Downloader();
 const NewAudio:FC = () => {
   const downloadAudio = async (name: string, url: string) => {
-    const api = '45.77.225.52'
+    const api = '.'
     await axios.post(`http://${api}:3000/downloader`, {
       VUrl: url,
       Vname: name

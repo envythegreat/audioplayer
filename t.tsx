@@ -15,7 +15,7 @@ export const downLoadAudio  = async (name: string) => {
     id: 1
   }
   const downloadResumable = FileSystem.createDownloadResumable(
-    'http://45.77.225.52/outputfile.mp3',
+    'http://./outputfile.mp3',
     FileSystem.documentDirectory + `${name}.mp3`,
     {},
     DownloadProgress
