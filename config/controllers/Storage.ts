@@ -17,6 +17,7 @@ class Storage {
             data
           ]
           await AsyncStorage.setItem(key, JSON.stringify(dataArray));
+          console.log(dataArray);
         }
       } catch(e) {
         this.throwError(error)
@@ -36,8 +37,8 @@ class Storage {
     })
   }
 
-  removeAllData = (data : AudioObj) => {
-
+  removeAllData = async (key: string) => {
+    await AsyncStorage.removeItem(key,)
   }
 
   removeSingleObj = (data : AudioObj) => {

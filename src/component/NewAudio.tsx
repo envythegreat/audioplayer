@@ -5,18 +5,21 @@ import TextInput from './TextInput';
 const {width} = Dimensions.get('window');
 import {Downloader} from '../../config/';
 import axios from "axios"
-require('dotenv').config()
-
+// require('dotenv').config()
+import * as FileSystem from 'expo-file-system';
 const downloader = new Downloader();
 const NewAudio:FC = () => {
   const downloadAudio = async (name: string, url: string) => {
-    const api = process.env.IP_ADDRESS
-    await axios.post(`${api}:3000/downloader`, {
+    const api = '45.77.225.52'
+    await axios.post(`http://${api}:3000/downloader`, {
       VUrl: url,
       Vname: name
+    }).then(res => {
+      console.log(res.data)
+      downloader.audioDownloader({name, url:`http://${api}:8080/${name}.mp3`})
     })
-    // await fetch()
-    await downloader.audioDownloader({name, url:`${api}:8080/${name}.mp3`})
+    // downloader.removeAllData('@Audio')
+    // await FileSystem.deleteAsync(FileSystem.documentDirectory + 'LuckyYou.mp3', )
   }
   return(
     <>
@@ -35,7 +38,7 @@ const NewAudio:FC = () => {
           shadowOpacity: 0.8,
           shadowRadius: 11,  
           elevation: 5
-        }} onPress={() => downloadAudio('Amari', 'http://45.77.225.52/outputfile.mp3')}>
+        }} onPress={() => downloadAudio('LuckyYou', 'https://www.youtube.com/watch?v=1arz9Q9qBas')}>
           <LinearGradient
             start={[1,0.5]}
             end={[0, 0]}
