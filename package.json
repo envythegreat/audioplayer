@@ -12,6 +12,7 @@
     "@react-native-async-storage/async-storage": "^1.13.0",
     "@reduxjs/toolkit": "^1.6.0",
     "Base64": "^1.1.0",
+    "axios": "^0.21.1",
     "expo": "~41.0.1",
     "expo-av": "~9.1.2",
     "expo-blur": "~9.0.3",

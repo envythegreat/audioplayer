@@ -4,12 +4,19 @@ import {View, Text, StyleSheet, TouchableOpacity, Dimensions} from 'react-native
 import TextInput from './TextInput';
 const {width} = Dimensions.get('window');
 import {Downloader} from '../../config/';
-
+import axios from "axios"
+require('dotenv').config()
 
 const downloader = new Downloader();
 const NewAudio:FC = () => {
-  const downloadAudio = (name: string, url: string) => {
-    downloader.audioDownloader({name, url})
+  const downloadAudio = async (name: string, url: string) => {
+    const api = process.env.IP_ADDRESS
+    await axios.post(`${api}:3000/downloader`, {
+      VUrl: url,
+      Vname: name
+    })
+    // await fetch()
+    await downloader.audioDownloader({name, url:`${api}:8080/${name}.mp3`})
   }
   return(
     <>

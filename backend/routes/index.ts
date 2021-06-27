@@ -6,19 +6,17 @@ var FfmpegCommand = require('fluent-ffmpeg');
 
 
 export default ({app}: TRoutesInput) => {
-  app.get('/audio', async (req, res) => {
-    return res.send({mydata: 'hello'})
-  })
+  // app.get('/audio', async (req, res) => {
+  //   return res.send({mydata: 'hello'})
+  // })
 
 
   app.post('/downloader', async (req, res) => {
-    const Url = req.body.VUrl
+    const VUrl = req.body.VUrl
+    const Vname = req.body.Vname
     // { quality: 'highestaudio' }
-    let info = await ytdl.getInfo(Url);
-    let name = info.videoDetails.title
-    name = name.replace(/\s/g, '_');
-    const stream = ytdl(Url, { quality: 'highestaudio' })
-    const p = fs.createWriteStream('outputfile.mp3');
+    const stream = ytdl(VUrl, { quality: 'highestaudio' })
+    const p = fs.createWriteStream(`./downloader/${Vname}.mp3`);
     // .pipe(fs.createWriteStream(`./downloader/${name}.mp4`));
     var proc = new FfmpegCommand({source: stream});
     proc.setFfmpegPath('C:\\ffmpeg\\bin\\ffmpeg.exe')
@@ -29,10 +27,7 @@ export default ({app}: TRoutesInput) => {
     proc.on('end', function() {
         console.log('finished');
     });
-    return res.send({Res: `Audio DownLoaded : ${name}`})
-
-
-
+    return res.send({Res: `Audio DownLoaded : ${Vname}`})
   })
 
 
