@@ -1,4 +1,5 @@
 import React, {FC} from 'react';
+import { useState } from 'react';
 import {View,StyleSheet, TextInput as Input, Dimensions} from 'react-native'
 
 import FeatherIcon from "react-native-vector-icons/Feather";
@@ -7,9 +8,17 @@ const {width} = Dimensions.get('window');
 interface TNProps {
   icon: string;
   placeholder: string;
+  value?:string;
+  getNewValue?: any
 }
 
-const TextInput:FC<TNProps> = ({icon, placeholder}: TNProps) => {
+const TextInput:FC<TNProps> = ({icon, placeholder, value, getNewValue}: TNProps) => {
+
+  const handleChange = (e: string) => {
+    //@ts-ignore
+    getNewValue(e)
+  }
+
   return(
     <View style={styles.textInputContainer}>
       <View style={{padding: 5,paddingLeft: 13}}>
@@ -20,6 +29,8 @@ const TextInput:FC<TNProps> = ({icon, placeholder}: TNProps) => {
         placeholder={placeholder}
         style={styles.textInput}
         returnKeyType={'done'}
+        value={value}
+        onChangeText={(e) => handleChange(e)}
       />
       {/* <View style={{padding: 5,paddingHorizontal: 10}}>
         <FeatherIcon name="check-circle"  style={styles.iconSy} size={18} />

@@ -3,11 +3,13 @@ import React, {useCallback, useMemo, useRef } from 'react';
 import { StyleSheet, View} from 'react-native';
 import { BottomAudio, CustomBackground, Header, MusicCard, NewAudio, TopPlayer } from './src/component';
 import MusicList from './src/MusicList';
-
+import { Provider } from 'react-redux';
+import {store} from './config/redux/store'
 import {
   BottomSheetModal,
   BottomSheetModalProvider,
 } from '@gorhom/bottom-sheet';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 
 
@@ -46,35 +48,39 @@ export default function App() {
 
 
   return (
-    <BottomSheetModalProvider>
-      <View style={styles.container}>
-        <StatusBar style="light" />
-        <Header cnClicks={handlePresentModalPress} />
-        <TopPlayer />
-        <MusicList />
-        <BottomAudio  onClicks={handlePresentCardPress} />
-        
-        {/* <MusicCard /> */}
-        <BottomSheetModal
-          ref={bottomSheetModalRef}
-          index={1}
-          snapPoints={snapPoints}
-          onChange={handleSheetChanges}
-        >
-          <NewAudio />
-        </BottomSheetModal>
-        <BottomSheetModal
-          ref={bottomSheetMusicCard}
-          name="Music Card"
-          index={1}
-          snapPoints={CardsnapPoints}
-          onChange={handleSheetChanges}
-          backgroundComponent={CustomBackground}
-        >
-          <MusicCard />
-        </BottomSheetModal>
-      </View>
-    </BottomSheetModalProvider>
+    <Provider store={store}>
+      <KeyboardAwareScrollView>
+      <BottomSheetModalProvider>
+        <View style={styles.container}>
+          <StatusBar style="light" />
+          <Header cnClicks={handlePresentModalPress} />
+          <TopPlayer />
+          <MusicList />
+          <BottomAudio  onClicks={handlePresentCardPress} />
+          
+          {/* <MusicCard /> */}
+          <BottomSheetModal
+            ref={bottomSheetModalRef}
+            index={1}
+            snapPoints={snapPoints}
+            onChange={handleSheetChanges}
+          >
+            <NewAudio />
+          </BottomSheetModal>
+          <BottomSheetModal
+            ref={bottomSheetMusicCard}
+            name="Music Card"
+            index={1}
+            snapPoints={CardsnapPoints}
+            onChange={handleSheetChanges}
+            backgroundComponent={CustomBackground}
+          >
+            <MusicCard />
+          </BottomSheetModal>
+        </View>
+      </BottomSheetModalProvider>
+      </KeyboardAwareScrollView>
+    </Provider>
   );
 }
 

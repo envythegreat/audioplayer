@@ -3,14 +3,25 @@ import React,{FC} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, Dimensions} from 'react-native';
 import TextInput from './TextInput';
 const {width} = Dimensions.get('window');
-import {Downloader} from '../../config/';
+import {Downloader, useAppDispatch, useAppSelector, setUrl, setName} from '../../config/';
 import axios from "axios"
 // require('dotenv').config()
-import * as FileSystem from 'expo-file-system';
+
+
+
 const downloader = new Downloader();
 const NewAudio:FC = () => {
+
+  
+  const dispatch = useAppDispatch();
+  const url = useAppSelector(state => state.video.url)
+  const name = useAppSelector(state => state.video.name)
+
+  const setNewUrl = (url: string) => dispatch(setUrl(url))
+  const setNewName = (name: string) => dispatch(setName(name))
+
   const downloadAudio = async (name: string, url: string) => {
-    const api = '.'
+    const api = '45.77.225.52'
     await axios.post(`http://${api}:3000/downloader`, {
       VUrl: url,
       Vname: name
@@ -30,15 +41,15 @@ const NewAudio:FC = () => {
             <MaterialIcons name="cancel" style={styles.closeIcon} ></MaterialIcons>
           </TouchableOpacity> */}
         </View>
-        <TextInput  icon="link" placeholder="Youtube Url" />
-        <TextInput  icon="headphones" placeholder="Audio Name" />
+        <TextInput  icon="link" placeholder="Youtube Url" value={url} getNewValue={setNewUrl} />
+        <TextInput  icon="headphones" placeholder="Audio Name"  value={name} getNewValue={setNewName} />
         <TouchableOpacity style={{
           shadowColor: 'rgba(255, 110, 170, 1)',
           shadowOffset: { width: 0, height: 5 },
           shadowOpacity: 0.8,
           shadowRadius: 11,  
           elevation: 5
-        }} onPress={() => downloadAudio('LuckyYou', 'https://www.youtube.com/watch?v=1arz9Q9qBas')}>
+        }} onPress={() => downloadAudio(name, url)}>
           <LinearGradient
             start={[1,0.5]}
             end={[0, 0]}
