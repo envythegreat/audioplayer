@@ -21,7 +21,8 @@ const NewAudio:FC = () => {
   const setNewName = (name: string) => dispatch(setName(name))
 
   const downloadAudio = async (name: string, url: string) => {
-    const api = '45.77.225.52'
+
+    const api = '.'
     await axios.post(`http://${api}:3000/downloader`, {
       VUrl: url,
       Vname: name
