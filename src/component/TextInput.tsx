@@ -15,7 +15,6 @@ interface TNProps {
 const TextInput:FC<TNProps> = ({icon, placeholder, value, getNewValue}: TNProps) => {
 
   const handleChange = (e: string) => {
-    //@ts-ignore
     getNewValue(e)
   }
 

@@ -3,8 +3,8 @@ import React,{FC} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, Dimensions} from 'react-native';
 import TextInput from './TextInput';
 const {width} = Dimensions.get('window');
-import {Downloader, useAppDispatch, useAppSelector, setUrl, setName} from '../../config/';
-import axios from "axios"
+import {Downloader, useAppDispatch, useAppSelector, setUrl, setName, setStatus} from '../../config/';
+import axios from "axios";
 // require('dotenv').config()
 
 
@@ -14,25 +14,29 @@ const NewAudio:FC = () => {
 
   
   const dispatch = useAppDispatch();
-  const url = useAppSelector(state => state.video.url)
-  const name = useAppSelector(state => state.video.name)
-
-  const setNewUrl = (url: string) => dispatch(setUrl(url))
-  const setNewName = (name: string) => dispatch(setName(name))
+  const url = useAppSelector(state => state.video.url);
+  const name = useAppSelector(state => state.video.name);
+  const status = useAppSelector(state => state.tracker.status);
+  const progress = useAppSelector(state => state.tracker.progress)
+  const setNewUrl = (url: string) => dispatch(setUrl(url));
+  const setNewName = (name: string) => dispatch(setName(name));
 
   const downloadAudio = async (name: string, url: string) => {
-
-    const api = '.'
+    dispatch(setStatus("Converting"))
+    const api = '45.77.225.52'
     await axios.post(`http://${api}:3000/downloader`, {
       VUrl: url,
       Vname: name
     }).then(res => {
       console.log(res.data)
+      dispatch(setStatus("Downloading"))
       downloader.audioDownloader({name, url:`http://${api}:8080/${name}.mp3`})
     })
     // downloader.removeAllData('@Audio')
     // await FileSystem.deleteAsync(FileSystem.documentDirectory + 'LuckyYou.mp3', )
   }
+
+
   return(
     <>
       <View style={[styles.container, {bottom: 0,}]}>
@@ -57,7 +61,7 @@ const NewAudio:FC = () => {
             colors={['rgba(253, 83, 86, 1)', 'rgba(255, 110, 170, 1)']}
             style={styles.downloadButton}
           >
-            <Text style={styles.downloadText}>Download</Text>
+            <Text style={styles.downloadText}>Download {progress.toFixed(2)}</Text>
           </LinearGradient>
         </TouchableOpacity>
       </View>

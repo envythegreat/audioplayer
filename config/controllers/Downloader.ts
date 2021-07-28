@@ -1,13 +1,19 @@
 import * as FileSystem from 'expo-file-system'
 import { AudioObj, downloadObj } from '../';
-import Storage from './Storage'
+import Storage from './Storage';
+import {setProgress} from '../redux/keepTackSlice';
+import {useAppDispatch} from '../redux/hooks';
+import {store} from '../redux/store';
+
+
 
 class Downloader extends Storage {
 
 
   DownloadProgress = (downloadProgress: any) => {
+    // const dispatch = useAppDispatch();
     const progress = downloadProgress.totalBytesWritten / downloadProgress.totalBytesExpectedToWrite;
-    console.log(progress)
+    store.dispatch(setProgress(progress * 100))
   };
 
   removeAudio = async (path: any) => {
