@@ -1,10 +1,12 @@
 import { LinearGradient } from 'expo-linear-gradient';
-import React,{FC} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, Dimensions} from 'react-native';
+import React,{FC,useState} from 'react';
+import {View, Text, StyleSheet, TouchableOpacity, Dimensions, Animated, Easing } from 'react-native';
 import TextInput from './TextInput';
 const {width} = Dimensions.get('window');
 import {Downloader, useAppDispatch, useAppSelector, setUrl, setName, setStatus} from '../../config/';
 import axios from "axios";
+import EvilIcons from "react-native-vector-icons/EvilIcons";
+import { useEffect } from 'react';
 // require('dotenv').config()
 
 
@@ -12,7 +14,29 @@ import axios from "axios";
 const downloader = new Downloader();
 const NewAudio:FC = () => {
 
-  
+  const [rotateAnim, setRotateAnimation] = useState(new Animated.Value(0));
+
+
+  Animated.loop(
+    Animated.timing(
+      rotateAnim,{
+        toValue: 1,
+        duration: 1500,
+        easing: Easing.linear,
+        useNativeDriver: true
+      }
+    )
+  ).start()
+
+
+  const spin = rotateAnim.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['0deg', '360deg']
+  })
+
+
+
+
   const dispatch = useAppDispatch();
   const url = useAppSelector(state => state.video.url);
   const name = useAppSelector(state => state.video.name);
@@ -31,7 +55,11 @@ const NewAudio:FC = () => {
       console.log(res.data)
       dispatch(setStatus("Downloading"))
       downloader.audioDownloader({name, url:`http://${api}:8080/${name}.mp3`})
-    })
+    }).then(() => {
+      dispatch(setStatus("None"))
+      dispatch(setUrl(''));
+      dispatch(setName(''));
+    }).finally(() => {dispatch(setStatus("Download"))})
     // downloader.removeAllData('@Audio')
     // await FileSystem.deleteAsync(FileSystem.documentDirectory + 'LuckyYou.mp3', )
   }
@@ -61,15 +89,16 @@ const NewAudio:FC = () => {
             colors={['rgba(253, 83, 86, 1)', 'rgba(255, 110, 170, 1)']}
             style={styles.downloadButton}
           >
-            <Text style={styles.downloadText}>Download {progress.toFixed(2)}</Text>
+            <Text style={styles.downloadText}>
+              {status}
+            </Text>
+            {/*  */}
           </LinearGradient>
         </TouchableOpacity>
       </View>
     </>
   );
 }
-//video
-//link
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',

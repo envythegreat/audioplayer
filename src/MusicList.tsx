@@ -1,7 +1,11 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import {View, StyleSheet, Dimensions, ScrollView, SafeAreaView} from 'react-native';
+import { Storage } from '../config';
 import MusicRow from './component/MusicRow';
 const {height} =  Dimensions.get('window');
+
 
 const music = [
   {
@@ -84,9 +88,18 @@ const music = [
   },
 ]
 
-
+const storage = new Storage();
 export default function MusicList() {
-  console.log(height)
+  const [data, setData] = useState<any>([])
+
+  useEffect(() => {
+    storage.getData("@Audio").then(res => {
+      if(res != undefined) {
+        setData(res)
+      }
+    })
+  },)
+  console.log(data)
   return(
     <>
       <SafeAreaView style={styles.listContainer}>

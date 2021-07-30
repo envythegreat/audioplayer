@@ -1,7 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 interface Tracker {
-  status: "Converting" | "Downloading" | "None";
+  status: "Converting" | "Downloading" | "None" | "Download";
   progress: number;
 }
 
@@ -17,7 +17,7 @@ export const TrackSlice = createSlice({
     setProgress: (state, action: PayloadAction<number>) => {
       state.progress = action.payload;
     },
-    setStatus: (state, action:PayloadAction<"Converting" | "Downloading" | "None">) => {
+    setStatus: (state, action:PayloadAction<"Converting" | "Downloading" | "None" | "Download" >) => {
       state.status = action.payload
     }
   }

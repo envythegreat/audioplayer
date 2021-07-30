@@ -29,7 +29,8 @@ class Storage {
     await AsyncStorage.getItem(key, async(error, result) => {
       try{
         if(result !== undefined && result !== null ){
-          return JSON.parse(result)
+          console.log(result)
+          return JSON.parse(result);
         }
       } catch(e) {
         this.throwError(error)
