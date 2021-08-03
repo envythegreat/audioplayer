@@ -4,6 +4,7 @@ import {AudioObj, downloadObj} from './types';
 import { setName, setUrl } from "./redux/VideoSlice";
 import { useAppDispatch, useAppSelector } from "./redux/hooks";
 import { setProgress, setStatus } from "./redux/keepTackSlice";
+import { addMusic } from "./redux/MusicSlice";
 
 
 export {
@@ -16,5 +17,6 @@ export {
   setProgress,
   setStatus,
   useAppDispatch,
-  useAppSelector
+  useAppSelector,
+  addMusic
 }

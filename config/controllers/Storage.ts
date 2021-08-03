@@ -26,16 +26,11 @@ class Storage {
   }
 
   getData = async (key: string) => {
-    await AsyncStorage.getItem(key, async(error, result) => {
-      try{
-        if(result !== undefined && result !== null ){
-          console.log(result)
-          return JSON.parse(result);
-        }
-      } catch(e) {
-        this.throwError(error)
-      }
-    })
+    try {
+      return await AsyncStorage.getItem(key);
+    } catch (error) {
+      return false;
+    }
   }
 
   removeAllData = async (key: string) => {
