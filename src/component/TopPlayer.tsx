@@ -19,7 +19,7 @@ export default function TopPlayer() {
       shouldDuckAndroid: true,
       playThroughEarpieceAndroid: false,
     })
-    const myd = await FileSystem.getInfoAsync(FileSystem.documentDirectory + 'Godmyjudge.mp3', {size: true})
+    const myd = await FileSystem.getInfoAsync(FileSystem.documentDirectory + 'LuckyYou.mp3', {size: true})
     console.log('Loading Sound');
     const { sound: _sound } = await Audio.Sound.createAsync(
       {

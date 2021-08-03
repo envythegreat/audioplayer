@@ -1,15 +1,20 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import { AudioObj } from '../../config';
+import { Audio } from 'expo-av';
+import * as FileSystem from 'expo-file-system';
 
 interface MusicProps{
   number: number;
-  name: string
+  name: string;
+  item: AudioObj
+  playSound?: () => void
 }
 
-const MusicRow:FC<MusicProps>  = ({number,name}: MusicProps) => {
+const MusicRow:FC<MusicProps>  = ({number,name, playSound}: MusicProps) => {
   return(
     <>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={playSound}>
           <View style={styles.container}>
             <Text style={styles.musicNumber}>{number}</Text>
             <View style={styles.musicText}>

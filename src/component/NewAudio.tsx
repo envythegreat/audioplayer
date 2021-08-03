@@ -5,9 +5,6 @@ import TextInput from './TextInput';
 const {width} = Dimensions.get('window');
 import {Downloader, useAppDispatch, useAppSelector, setUrl, setName, setStatus} from '../../config/';
 import axios from "axios";
-import EvilIcons from "react-native-vector-icons/EvilIcons";
-import { useEffect } from 'react';
-// require('dotenv').config()
 
 
 
